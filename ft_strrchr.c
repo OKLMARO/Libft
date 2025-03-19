@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   strrchr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 16:27:15 by oamairi           #+#    #+#             */
-/*   Updated: 2025/03/19 12:03:36 by oamairi          ###   ########.fr       */
+/*   Created: 2025/03/19 16:16:58 by oamairi           #+#    #+#             */
+/*   Updated: 2025/03/19 16:16:58 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_toupper(char *str)
+char	*ft_strrchr(char *str, int c)
 {
-	int	i;
+	char	*res;
+	int		i;
 
 	i = 0;
+	res = "";
 	while (str[i] != '\0')
 	{
-		if ((str[i] >= 97) && (str[i] <= 122))
-		{
-			str[i] = str[i] - 32;
-		}
-		i = i + 1;
+		if (str[i] == c)
+			res = &str[i];
+		i++;
 	}
-	return (str);
+	return (res);
 }

@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 16:27:15 by oamairi           #+#    #+#             */
-/*   Updated: 2025/03/19 12:03:36 by oamairi          ###   ########.fr       */
+/*   Created: 2025/03/19 15:58:56 by oamairi           #+#    #+#             */
+/*   Updated: 2025/03/19 15:58:56 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_toupper(char *str)
-{
-	int	i;
+#include <stdio.h>
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= 97) && (str[i] <= 122))
-		{
-			str[i] = str[i] - 32;
-		}
-		i = i + 1;
-	}
-	return (str);
+char	*ft_strchr(char *str, int c);
+char	*ft_strrchr(char *str, int c);
+
+int	main(void)
+{
+	printf("%s\n", ft_strchr("salut comment allez vous ?", 'w'));
+	return (0);
 }
