@@ -1,5 +1,8 @@
 NAME=Libft
 FILES = ft_atoi.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memset.c \
 		ft_strcat.c \
 		ft_strcpy.c \
 		ft_strdup.c \
