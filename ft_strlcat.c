@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:52:16 by oamairi           #+#    #+#             */
-/*   Updated: 2025/03/31 15:52:16 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/09 16:40:24 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/09 16:40:24 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(char *dest, char *src, char ch, int maxSize)
+int	ft_strlcat(char *dest, char *src, int destSize)
 {
 	int	i;
 
 	i = 0;
-	while (src && src[i] != ch && i < maxSize)
+	while (src[i] && i < destSize)
 	{
-		dest[i] = src[i];
+		
 		i++;
 	}
-	if (src[i] == ch || i == maxSize)
-		return (0);
-	i++;
-	return (&src[i]);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_memcpy(char *dest, char *src, int size)
+void	*ft_memcpy(char *dest, char *src, int size)
 {
 	int	i;
 

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:52:16 by oamairi           #+#    #+#             */
-/*   Updated: 2025/03/31 15:52:16 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/09 16:21:25 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/09 16:21:25 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(char *dest, char *src, char ch, int maxSize)
+void	*memchr(const void *memoryBlock, int searchedChar, int size)
 {
 	int	i;
 
 	i = 0;
-	while (src && src[i] != ch && i < maxSize)
+	while (i < size)
 	{
-		dest[i] = src[i];
+		if (memoryBlock[i] == searchedChar)
+			return (&memoryBlock[i]);
 		i++;
 	}
-	if (src[i] == ch || i == maxSize)
-		return (0);
-	i++;
-	return (&src[i]);
+	return (0);
 }
