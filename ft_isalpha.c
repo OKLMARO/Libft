@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 16:40:24 by oamairi           #+#    #+#             */
-/*   Updated: 2025/04/09 16:40:24 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/10 16:07:27 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/10 16:07:27 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dest, char *src, size_t destSize)
+int	ft_isalpha(int chr)
 {
-	size_t	i;
-
-	i = 0;
-	while (dest[i])
-		i++;
-	while (src[i] && i < destSize)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (i);
+	if (chr >= 65 && chr <= 90)
+		return (1);
+	else if (chr >= 97 && chr <= 122)
+		return (1);
+	else
+		return (0);
 }

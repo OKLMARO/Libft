@@ -11,12 +11,10 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-char	*ft_strchr(char *str, int c);
-char	*ft_strrchr(char *str, int c);
+#include "libft.h"
 
 int	main(void)
 {
-	printf("%s\n", ft_strchr("salut comment allez vous ?", 'w'));
+	printf("%d\n", ft_isalnum('\n'));
 	return (0);
 }

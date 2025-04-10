@@ -15,4 +15,8 @@
 
 #include <stdlib.h>
 
+int	ft_isalpha(int chr);
+int	ft_isdigit(int chr);
+int	ft_isalnum(int chr);
+
 #endif
