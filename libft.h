@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 15:45:22 by oamairi           #+#    #+#             */
-/*   Updated: 2025/03/31 15:45:22 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/10 11:51:27 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/10 11:51:27 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+#define LIBFT_H
 
-void	*ft_memcpy(char *dest, char *src, size_t size)
-{
-	size_t	i;
+#include <stdlib.h>
 
-	i = 0;
-	while (i < size)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	return (dest);
-}
+#endif

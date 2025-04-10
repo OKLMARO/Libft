@@ -10,9 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(char *dest, char *src, char ch, int maxSize)
+#include "libft.h"
+
+void	*ft_memccpy(char *dest, char *src, char ch, size_t maxSize)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src && src[i] != ch && i < maxSize)

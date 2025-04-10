@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *pointer, int value, int count)
+#include "libft.h"
+
+void	*ft_memset(void *pointer, int value, size_t count)
 {
 	pointer = malloc(sizeof(count) * value);
 	if (!pointer)

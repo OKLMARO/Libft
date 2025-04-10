@@ -10,18 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	memcmp(const void *pointer1, const void *pointer2, int size)
-{
-	int	i;
+#include "libft.h"
 
+size_t	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	char	*temp1;
+	char	*temp2;
+
+	temp1 = (char *) pointer1;
+	temp2 = (char *) pointer2;
 	i = 0;
 	j = 1;
 	while (j < size && i < size)
 	{
-		if (pointer1[i] != pointer2[i])
-			return (pointer1[i] - pointer2[i]);
-		if (pointer1[j] != pointer2[j])
-			return (pointer1[j] - pointer2[j]);
+		if (temp1[i] != temp2[i])
+			return (temp1[i] - temp2[i]);
+		if (temp1[j] != temp2[j])
+			return (temp1[j] - temp2[j]);
 		i += 2;
 		j += 2;
 	}

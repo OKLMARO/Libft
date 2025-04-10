@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memchr(const void *memoryBlock, int searchedChar, int size)
+#include "libft.h"
+
+void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 {
-	int	i;
+	size_t	i;
+	char	*temp;
 
 	i = 0;
+	temp = (char *) memoryBlock;
 	while (i < size)
 	{
-		if (memoryBlock[i] == searchedChar)
-			return (&memoryBlock[i]);
+		if (temp[i] == searchedChar)
+			return (&temp[i]);
 		i++;
 	}
 	return (0);
