@@ -10,4 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
+void	*ft_calloc(size_t elementCount, size_t elementSize)
+{
+	void	*res;
+	size_t	i;
+	size_t	j;
+
+	res = malloc(elementCount * elementSize);
+	if (!res)
+		return (0);
+	while (i < elementCount)
+	{
+		res[i] = '\0';
+		i++;
+	}
+	return (res);
+}

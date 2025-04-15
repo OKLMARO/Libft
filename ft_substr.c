@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/10 17:09:22 by oamairi           #+#    #+#             */
-/*   Updated: 2025/04/10 17:09:22 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/15 23:42:01 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/15 23:42:01 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	size_t	i;
+#include "libft.h"
 
-	i = 0;
-	while (dest[i])
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	unsigned int	i;
+	char			*res;
+	int				j;
+
+	i = start;
+	while (s[i] && (i - start) < len)
 		i++;
-	while (i < size - 1)
+	res = malloc((i + 1) * sizeof(char));
+	if (!res)
+		return (0);
+	j = 0;
+	i = start;
+	while (s[i] && j < len)
 	{
-		dest[i] = src[i];
+		res[j] = s[i];
+		j++;
 		i++;
 	}
-	return (i);
+	return (res);
 }

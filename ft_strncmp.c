@@ -12,7 +12,7 @@
 
 int	ft_strncmp(const char *first, const char *second, size_t lenght)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < lenght)
