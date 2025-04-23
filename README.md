@@ -1,2 +1,1 @@
-#Libft
 My Libft project
