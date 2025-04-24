@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 13:22:09 by oamairi           #+#    #+#             */
-/*   Updated: 2025/04/24 16:02:38 by oamairi          ###   ########.fr       */
+/*   Created: 2025/04/24 16:06:09 by oamairi           #+#    #+#             */
+/*   Updated: 2025/04/24 16:32:02 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*lst_next;
+	t_list	*lst_new;
 
-	lst_next = *lst;
-	while (lst_next)
+	lstNew = ft_lstnew();
+	while (lst->next)
 	{
-		lst_next = lst_next->next;
-		d(*lst);
-		free(*lst);
-		lst = lst_next;
+		lstNew = f(lst);
+		lst = lst->next;
+		lstNew->next = ft_lstnew();
 	}
+	lstNew = f(lst);
+	return (lstNew);
 }
