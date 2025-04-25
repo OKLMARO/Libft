@@ -26,7 +26,7 @@ int	is_charset(char c, char *charset)
 	return (0);
 }
 
-char	*ft_strcpy(char *dest, char *src, char *charset)
+char	*ft_strcpy_split(char *dest, char *src, char *charset)
 {
 	int	i;
 
@@ -92,7 +92,7 @@ char	**ft_split(char *str, char *charset)
 		while (is_charset(str[j], charset) == 1)
 			j++;
 		res[i] = malloc(sizeof(char) * str_len(str, j, charset));
-		ft_strcpy(res[i], &str[j], charset);
+		ft_strcpy_split(res[i], &str[j], charset);
 		j = j + str_len(str, j, charset);
 		i++;
 	}
