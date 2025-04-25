@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	str_len(char *str)
 {
 	int	i;
@@ -20,29 +22,38 @@ int	str_len(char *str)
 	return (i);
 }
 
+void	init(size_t *i, size_t *j, size_t *to_find_len, char *temp_find)
+{
+	*j = 0;
+	*i = 0;
+	*to_find_len = str_len(temp_find);
+}
+
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	int	i_find;
-	int	i_str;
-	int	to_find_len;
+	size_t	j;
+	size_t	i;
+	size_t	to_find_len;
+	char	*temp_find;
+	char	*temp_str;
 
-	i_find = 0;
-	i_str = 0;
-	to_find_len = str_len(to_find);
-	if (to_find[0] == '\0')
-		return (str);
-	while (str[i_str] != '\0' && i_str < len)
+	temp_find = (char *)to_find;
+	temp_str = (char *)str;
+	init(&i, &j, &to_find_len, temp_find);
+	if (temp_find[0] == '\0')
+		return (temp_str);
+	while (temp_str[i] != '\0' && i < len)
 	{
-		while (str[i_str + i_find] == to_find[i_find] && str[i_str] != '\0')
+		while (temp_str[i + j] == temp_find[j] && temp_str[i] != '\0')
 		{
-			if ((i_str + i_find) >= len)
+			if ((i + j) >= len)
 				return (0);
-			i_find = i_find + 1;
+			j = j + 1;
 		}
-		if (to_find[i_find] == '\0' && i_find == to_find_len)
-			return (&str[i_str]);
-		i_str = i_str + 1;
-		i_find = 0;
+		if (temp_find[j] == '\0' && j == to_find_len)
+			return (&temp_str[i]);
+		i = i + 1;
+		j = 0;
 	}
 	return (0);
 }

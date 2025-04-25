@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_trim(const char s1, const char *set)
+#include "libft.h"
+
+int	is_trim(const char *s1, const char *set)
 {
 	int	i;
 	int	j;
-	int	rencontre;
 
 	i = 0;
 	while (s1[i])
@@ -22,7 +23,6 @@ int	is_trim(const char s1, const char *set)
 		if (i == 0 || !s1[i + 1])
 		{
 			j = 0;
-			rencontre = 0;
 			while (set[j])
 			{
 				if (s1[i] == set[j])
@@ -64,7 +64,7 @@ int	ft_strtrim_len(char const *s1, char const *set)
 	}
 }
 
-int	init(int *i_s1, int *i_res, char *res)
+int	init(int *i_s1, int *i_res, char *res, const char *s1)
 {
 	i_s1 = 0;
 	i_res = 0;
@@ -80,7 +80,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i_res;
 	char	*res;
 
-	if (!init(&i_s1, &i_res, res))
+	if (!init(&i_s1, &i_res, res, s1))
 		return (0);
 	while (s1[i_s1])
 	{
