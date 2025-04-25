@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romukena <romukena@student42.fr>           +#+  +:+       +#+        */
+/*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 23:31:25 by romukena          #+#    #+#             */
-/*   Updated: 2025/03/04 00:03:28 by romukena         ###   ########.fr       */
+/*   Created: 2025/03/03 23:31:25 by oamairi           #+#    #+#             */
+/*   Updated: 2025/03/04 00:03:28 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,3 @@ char	*ft_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-/*
-int main()
-{
-	char *src = "Hello, les amis";
-	char *copie;
-
-	copie = ft_strdup(src);
-
-	printf("%s\n", copie);
-	printf("%s\n", src);
-
-
-	free(copie);
-	return 0;
-
-}*/

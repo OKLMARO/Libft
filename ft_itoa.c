@@ -38,21 +38,21 @@ char	*ft_itoa(int n)
 	int			len_base_to;
 	long		temp;
 
-	len_base_to = len_base(nb);
+	len_base_to = len_base(n);
 	dest = malloc(sizeof(char) * (len_base_to));
 	if (!dest)
 		return (0);
 	dest[len_base_to] = '\0';
-	if (nb < 0)
+	if (n < 0)
 	{
-		temp = nb;
-		nb = nb * -1;
+		temp = n;
+		n = n * -1;
 	}
 	while (len_base_to)
 	{
 		len_base_to--;
-		dest[len_base_to] = base_to[nb % 10];
-		nb = nb / 10;
+		dest[len_base_to] = n % 10;
+		n = n / 10;
 	}
 	if (temp < 0)
 		dest[0] = '-';
