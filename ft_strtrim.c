@@ -62,16 +62,14 @@ int	ft_strtrim_len(char const *s1, char const *set)
 		res++;
 		i++;
 	}
+	return (res);
 }
 
-int	init(int *i_s1, int *i_res, char *res, const char *s1)
+void	*init_trim(int *i_s1, int *i_res, const char *s1, const char *set)
 {
-	i_s1 = 0;
-	i_res = 0;
-	res = malloc(sizeof(char) * (ft_strtrim_len(s1) + 1));
-	if (!res)
-		return (0);
-	return (1);
+	*i_s1 = 0;
+	*i_res = 0;
+	return (malloc(sizeof(char) * (ft_strtrim_len(s1, set) + 1)));
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -80,13 +78,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i_res;
 	char	*res;
 
-	if (!init(&i_s1, &i_res, res, s1))
+	res = init_trim(&i_s1, &i_res, s1, set);
+	if (!res)
 		return (0);
 	while (s1[i_s1])
 	{
 		if (i_s1 == 0 || !s1[i_s1 + 1])
 		{
-			if (!is_trim(s1[i_s1], set))
+			if (!is_trim(&s1[i_s1], set))
 			{
 				res[i_res] = s1[i_s1];
 				i_res++;

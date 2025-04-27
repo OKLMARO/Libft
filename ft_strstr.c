@@ -9,15 +9,8 @@
 /*   Updated: 2025/02/26 11:56:01 by oamairi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	str_len(char *str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
-		i = i + 1;
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -27,7 +20,7 @@ char	*ft_strstr(char *str, char *to_find)
 
 	i_find = 0;
 	i_str = 0;
-	to_find_len = str_len(to_find);
+	to_find_len = ft_strlen(to_find);
 	if (to_find[0] == '\0')
 		return (str);
 	while (str[i_str] != '\0')

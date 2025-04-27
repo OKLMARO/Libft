@@ -12,21 +12,11 @@
 
 #include "libft.h"
 
-int	str_len(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i = i + 1;
-	return (i);
-}
-
 void	init(size_t *i, size_t *j, size_t *to_find_len, char *temp_find)
 {
 	*j = 0;
 	*i = 0;
-	*to_find_len = str_len(temp_find);
+	*to_find_len = ft_strlen(temp_find);
 }
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t len)

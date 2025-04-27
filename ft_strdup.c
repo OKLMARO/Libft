@@ -13,7 +13,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	ftstrlen(char *str)
+int	strlen_dup(char *str)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ char	*ft_strdup(char *src)
 	char	*dest;
 
 	i = 0;
-	dest = malloc(sizeof(char) * ftstrlen(src) + 1);
+	dest = malloc(sizeof(char) * strlen_dup(src) + 1);
 	if (!dest)
 		return (0);
 	while (src[i])
