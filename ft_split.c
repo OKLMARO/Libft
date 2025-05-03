@@ -12,26 +12,12 @@
 
 #include "libft.h"
 
-int	is_charset(char c, char *charset)
+char	*ft_strcpy_split(char *dest, const char *src, char c)
 {
 	int	i;
 
 	i = 0;
-	while (charset[i] != '\0')
-	{
-		if (charset[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	*ft_strcpy_split(char *dest, char *src, char *charset)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0' && is_charset(src[i], charset) == 0)
+	while (src[i] != '\0' && src[i] != c)
 	{
 		dest[i] = src[i];
 		i = i + 1;
@@ -40,12 +26,12 @@ char	*ft_strcpy_split(char *dest, char *src, char *charset)
 	return (dest);
 }
 
-int	str_len(char *str, int i, char *charset)
+int	str_len_split(const char *str, int i, char c)
 {
 	int	taille;
 
 	taille = 0;
-	while (str[i] != '\0' && is_charset(str[i], charset) == 0)
+	while (str[i] != '\0' && str[i] != c)
 	{
 		i++;
 		taille++;
@@ -53,7 +39,7 @@ int	str_len(char *str, int i, char *charset)
 	return (taille);
 }
 
-int	count_word(char *str, char *charset)
+int	count_word(const char *str, char c)
 {
 	int	word;
 	int	pre;
@@ -64,9 +50,9 @@ int	count_word(char *str, char *charset)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (is_charset(str[i], charset) == 1)
+		if (str[i] == c)
 			pre = 1;
-		else if (is_charset(str[i], charset) == 0 && pre == 1)
+		else if (str[i] != c && pre == 1)
 		{
 			pre = 0;
 			word++;
@@ -76,25 +62,44 @@ int	count_word(char *str, char *charset)
 	return (word);
 }
 
-char	**ft_split(char *str, char *charset)
+void	free_split(char **res, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free(res[j]);
+		j++;
+	}
+	free(res);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		word;
 	char	**res;
 
 	i = 0;
 	j = 0;
-	word = count_word(str, charset);
-	res = malloc(sizeof(char *) * word + 1);
-	while (i < word)
+	res = malloc(sizeof(char *) * (count_word(s, c) + 1));
+	if (!res)
+		return (0);
+	while (i < count_word(s, c))
 	{
-		while (is_charset(str[j], charset) == 1)
+		while (s[j] == c)
 			j++;
-		res[i] = malloc(sizeof(char) * str_len(str, j, charset));
-		ft_strcpy_split(res[i], &str[j], charset);
-		j = j + str_len(str, j, charset);
+		res[i] = malloc(sizeof(char) * (str_len_split(s, j, c) + 1));
+		if (!res[i])
+		{
+			free_split(res, i);
+			return (0);
+		}
+		ft_strcpy_split(res[i], &s[j], c);
+		j = j + str_len_split(s, j, c);
 		i++;
 	}
+	res[i] = NULL;
 	return (res);
 }

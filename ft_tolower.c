@@ -10,18 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_tolower(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= 65) && (str[i] <= 90))
-		{
-			str[i] = str[i] + 32;
-		}
-		i = i + 1;
-	}
-	return (str);
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		c = c + 32;
+	return (c);
 }

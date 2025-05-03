@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oamairi <oamairi@student42.fr>             +#+  +:+       +#+        */
+/*   By: oamairi <oamairi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 15:34:30 by oamairi           #+#    #+#             */
 /*   Updated: 2025/04/19 15:34:30 by oamairi          ###   ########.fr       */
@@ -12,66 +12,30 @@
 
 #include "libft.h"
 
-int	strlen_join(char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*res;
+	int		i;
+	int		j;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*put_in_tab(char **strs, char *sep, char *dest, int size)
-{
-	int	i;
-	int	j;
-	int	k;
-
+	res = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!res)
+		return (0);
 	i = 0;
 	j = 0;
-	k = 0;
-	while (i < size)
+	while (s1[i])
 	{
-		while (strs[i][j])
-			dest[k++] = strs[i][j++];
-		j = 0;
-		if (i < size - 1)
-		{
-			while (sep[j])
-				dest[k++] = sep[j++];
-		}
-		j = 0;
+		res[j] = s1[i];
 		i++;
+		j++;
 	}
-	return (dest);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	int		i;
-	int		total_length;
-	char	*dest;
-
 	i = 0;
-	total_length = 0;
-	while (i < size)
+	while (s2[i])
 	{
-		total_length = total_length + strlen_join(strs[i]);
-		if (i < size - 1)
-			total_length = total_length + strlen_join(sep);
+		res[j] = s2[i];
 		i++;
+		j++;
 	}
-	dest = malloc(sizeof(char) * (total_length + 1));
-	if (!dest)
-		return (0);
-	if (size == 0)
-	{
-		dest = malloc(1);
-		dest[0] = '\0';
-		return (dest);
-	}
-	dest = put_in_tab(strs, sep, dest, size);
-	dest[total_length] = '\0';
-	return (dest);
+	res[j] = '\0';
+	return (res);
 }

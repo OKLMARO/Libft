@@ -10,18 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_toupper(char *str)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if ((str[i] >= 97) && (str[i] <= 122))
-		{
-			str[i] = str[i] - 32;
-		}
-		i = i + 1;
-	}
-	return (str);
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	return (c);
 }

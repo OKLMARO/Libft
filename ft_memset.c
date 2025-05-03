@@ -12,10 +12,17 @@
 
 #include "libft.h"
 
-void	*ft_memset(void *pointer, int value, size_t count)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	pointer = malloc(sizeof(count) * value);
-	if (!pointer)
-		return (0);
-	return (pointer);
+	char	*pointer_c;
+	size_t	i;
+
+	pointer_c = (char *) s;
+	i = 0;
+	while (i < n)
+	{
+		pointer_c[i] = c;
+		i++;
+	}
+	return (s);
 }

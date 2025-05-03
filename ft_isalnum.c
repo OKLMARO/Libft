@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int	ft_isalnum(int chr)
+int	ft_isalnum(int c)
 {
-	if (ft_isalpha(chr) != 0 || ft_isdigit(chr) != 0)
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
 		return (1);
 	return (0);
 }

@@ -19,7 +19,7 @@ void	init(size_t *i, size_t *j, size_t *to_find_len, char *temp_find)
 	*to_find_len = ft_strlen(temp_find);
 }
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	j;
 	size_t	i;
@@ -27,14 +27,14 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	char	*temp_find;
 	char	*temp_str;
 
-	temp_find = (char *)to_find;
-	temp_str = (char *)str;
+	temp_find = (char *) little;
+	temp_str = (char *) big;
 	init(&i, &j, &to_find_len, temp_find);
 	if (temp_find[0] == '\0')
 		return (temp_str);
 	while (temp_str[i] != '\0' && i < len)
 	{
-		while (temp_str[i + j] == temp_find[j] && temp_str[i] != '\0')
+		while (temp_str[i + j] == temp_find[j] && temp_str[i + j] != '\0')
 		{
 			if ((i + j) >= len)
 				return (0);
