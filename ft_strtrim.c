@@ -39,6 +39,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		debut++;
 	while (is_trim(s1[fin], set))
 		fin--;
+	if (fin < debut)
+		debut = 0;
 	res = malloc((fin - debut + 2) * sizeof(char));
 	if (!res)
 		return (0);
@@ -52,3 +54,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res[i] = '\0';
 	return (res);
 }
+
+/*int	main(void)
+{
+	printf("%s\n", ft_strtrim("   xxx   xxx", " x"));
+	return (0);
+}*/
