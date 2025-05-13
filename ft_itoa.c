@@ -36,7 +36,6 @@ char	*ft_itoa(int n)
 {
 	char		*dest;
 	int			len_base_to;
-	long		temp;
 	long int	nb;
 
 	nb = n;
@@ -47,16 +46,16 @@ char	*ft_itoa(int n)
 	dest[len_base_to] = '\0';
 	if (nb < 0)
 	{
-		temp = nb;
 		nb = nb * -1;
+		dest[0] = '-';
 	}
-	while (len_base_to)
+	if (nb == 0)
+		dest[0] = '0';
+	while (nb)
 	{
 		len_base_to--;
 		dest[len_base_to] = (nb % 10) + '0';
 		nb = nb / 10;
 	}
-	if (temp < 0)
-		dest[0] = '-';
 	return (dest);
 }
